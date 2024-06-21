@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Controlador de recursos con rutas integradas, resources ya hace referencia a un crud por lo que integra los verbos del protocolo HTTP
+Route::resource('/tasks', TaskController::class);
+// Route::get('/tasks', [TaskController::class, 'index']);
+
+//Comando php artisan route:list ---> lista todas las rutas en nuestra app
