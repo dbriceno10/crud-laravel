@@ -15,7 +15,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $tasks = Task::latest()->get();
+        return view('index', ['tasks' => $tasks]);
     }
 
     /**
