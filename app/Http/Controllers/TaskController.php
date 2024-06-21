@@ -21,16 +21,21 @@ class TaskController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
+    //El metodo create se utiliza para mostrar el formulario
     {
-        //
+        return view('create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
+    //El metodo store se utiliza para ejecutar la logica para almacenar el nuevo registro con los datos provenientes de formulario
     {
-        //
+        // dd($request->all());
+
+        Task::create($request->all());
+        return redirect()->route('tasks.index');
     }
 
     /**
