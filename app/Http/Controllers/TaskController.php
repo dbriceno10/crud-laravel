@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 // php artisan make:controller TaskController --resource --model=Task ---> con este commando podemos crear un controlador y un modelo al mismo tiempo, añadiendo flags, con el flag --resource el controlador se crea con el el esqueleto basico de metodos para un CRUD
 
@@ -13,16 +14,16 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        $tasks = Task::latest()->get();
+        $tasks = Task::latest()->paginate(3);
         return view('index', ['tasks' => $tasks]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     //El metodo create se utiliza para mostrar el formulario
     {
         return view('create');
@@ -55,7 +56,7 @@ class TaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Task $task)
+    public function edit(Task $task): View
     {
         //
     }
