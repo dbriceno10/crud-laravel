@@ -12,6 +12,13 @@
             </div>
         </div>
 
+        @if (Session::get('success'))
+            <div class="alert alert-success mt-2">
+                <strong>{{ Session::get('success') }}!</strong><br>
+
+            </div>
+        @endif
+
         <div class="col-12 mt-4">
             <table class="table table-bordered text-white">
                 <tr class="text-secondary">
