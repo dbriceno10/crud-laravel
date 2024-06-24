@@ -8,7 +8,7 @@
                 <h2 class="text-white">CRUD de Tareas</h2>
             </div>
             <div>
-                <a href="" class="btn btn-primary">Crear tarea</a>
+                <a href={{ route('tasks.create') }} class="btn btn-primary">Crear tarea</a>
             </div>
         </div>
 
@@ -58,9 +58,9 @@
                             <span class="badge bg-warning fs-6">{{ $task->status }}</span>
                         </td>
                         <td>
-                            <a href="" class="btn btn-warning">Editar</a>
+                            <a href={{ route('tasks.edit', ['task' => $task]) }} class="btn btn-warning">Editar</a>
 
-                            <form action="{{ route('tasks.destroy', $task) }}" method="POST" class="d-inline">
+                            <form action={{ route('tasks.destroy', $task) }} method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
